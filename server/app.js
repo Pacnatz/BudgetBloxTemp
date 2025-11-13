@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: ['https://deploy-mern-1whq.vercel.app'],
+    origin: ['https://budget-blox-main.vercel.app/'],
     methods: ['POST', 'GET'],
     credentials: true,
   }),
