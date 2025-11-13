@@ -17,10 +17,8 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === 'production'
-        ? process.env.FRONTEND_URL
-        : 'http://localhost:5173',
+    origin: ['https://deploy-mern-1whq.vercel.app'],
+    methods: ['POST', 'GET'],
     credentials: true,
   }),
 );
@@ -32,10 +30,9 @@ app.use('/api/users', usersRouter);
 app.use('/api/expenses', expensesRouter);
 
 mongoose.set('strictQuery', false);
-mongoose
-  .connect(uri)
-  .then(() => console.log('MongoDB connected'))
-  .catch(console.error);
+mongoose.connect(
+  'mongodb+srv://nhatchu0508_db_user:test123@cluster0.45izhif.mongodb.net/?appName=Cluster0',
+);
 
 app.use((req, res) => {
   res.status(sendNotFound).json({ message: 'Requested resource not found' });
