@@ -35,7 +35,7 @@ mongoose.connect(
 );
 
 app.use((req, res) => {
-  res.status(sendNotFound).json({ message: 'Requested resource not found' });
+  sendNotFound(res, 'Requested resource not found');
 });
 
 const PORT = process.env.PORT || 3000;
